@@ -1,59 +1,66 @@
-# Making-Matplotlib-Magic-and-the-Midterm-Project
+# Making-Matplotlib-Magic
 
-For the Midterm project, each team will use the five CSV files located in the Resources folder to complete the analysis. Each team will get started by using the provided Midterm_project_starter_code.ipynb file in the Midterm project resources download link. Feel free to copy this file to work through the three requirements and your additional analyses.
+Making Matplotlib Magic
+It's been a few days since you sent your boxplot to the senior scientist at Pymaceuticals. Today, they finally got back to you with feedback. They said your initial boxplot was fantastic. In fact, with a few tweaks, your visualization can be used in a publication! Thankfully, with Jupyter notebooks, adding more content to your Matplotlib visualizations is a breeze.
+For this skill drill, you will leverage the same drug regimen data from last class and utilize subplots to create an advanced visualization packed with insightful information!
 
-As a team, complete the following steps:
+Instructions:
+Part 1: Regenerate Data and Create Detailed Subplot
 
-Create a Jupyter Notebook describing the data exploration and cleanup process for the three requirements and two additional analyses.
 
-Complete all three requirements in the starter code to perform a high-level analysis.
+Using the supplied starter code, re-import, clean and visualize the drug regimen data from the previous skill-drill.
 
-For Requirement 1, you'll create a DataFrame that displays the total number of alternative fuel stations grouped by "State" and "Fuel Type" by doing the following:
 
-Read in each CSV as a DataFrame and rename columns as follows:
+Use plt.subplot() to create a figure with a 2x2 subplot layout, where the first plot is our original boxplot from the previous skill drill.
 
-"85% Ethanol": "85E"
-"Compressed Natural Gas": "CNG"
-"Liquified Natural Gas": "LNG"
-"Liquified Petroleum Gas": "Propane"
-"Biodiesel", "Electric", and "Hydrogen" do not need to be renamed.
-Next, for each original DataFrame apply the melt function to create new DataFrames, and rename the columns using id_vars="State", var_name="Fuel Type", and the "year" for the value_name parameter.
 
-For each new DataFrame created using the melt function, retrieve the total number of alternative fuel stations grouped by the "State" and "Fuel Type."
+Note: All four subplots should share the same axes and labels. In doing so, each plot brings more context to the next.
 
-Finally, merge all five DataFrames to create a DataFrame as the following image shows:
 
-An image that shows a DataFrame of with the total number of alternative fuel stations grouped by State and Fuel Type.
 
-For Requirement 2, you'll create a bar chart that shows the total number of alternative fuel stations for each year by doing the following:
+For the second plot within the subplot, create a horizontal bar chart showing the largest final tumor volume for each drug regimen.
 
-Create a list that holds the total number of alternate fuel stations for each year from the merged DataFrame from Requirement 1.
 
-Create a list that holds the years from the merged DataFrame from Requirement 1.
+Hint: You can use the tumor_vol_list from the starter code to retrieve final tumor volume for your calculations.
 
-Finally, create a bar chart that shows the total number of alternative fuel stations for each year, and add x- and y-axes labels and a title as the following image shows:
 
-An image shows a bar graph that depicts the total number of alternative fuel stations for each year
 
-For Requirement 3, you'll create a table that shows the alternative fuel types sorted from the greatest to least number of alternative fuel stations for each year by doing the following:
+For the third plot within the subplot, create a scatter plot that shows final tumor volume by drug regimen and colored by the mouse Sex.
 
-Get the total number of each alternative fuel type by grouping each melted DataFrame from Requirement 1 on "Fuel Type", and resetting the index.
 
-Merge all five grouped DataFrames on "Fuel Type."
+Hint: The most straightforward way to plot multiple categories (such as the mice's Sex) is to plot multiple scatter plots, one for each category, using a loop.
 
-Sort the merged DataFrame on the year columns in descending order to create a DataFrame as the following image shows:
 
-An image that shows a DataFrame sorted from greatest to least number of alternative fuel stations for each year.
 
-After completing all three requirements, each team must perform two additional analyses that produce two visualizations, i.e., one visualization per question asked about your data.
+For the fourth plot within the subplot, create a scatter plot that shows final tumor volume by drug regimen and colored by mouse Age_months using a colorbar.
 
-NOTE
-Due to the time constraints for teams to work on this project, no additional datasets are allowed.
 
-Create a Jupyter Notebook illustrating the final data analysis.
+Hint: Check out this article on how to add and customize a colorbar for your plot. Also check out the colorbar documentation to see how to add a label to your colorbar.
 
-The repository README must contain a summary that supports the major findings. The summary should include a heading for the high-level analysis and one for each "question" you asked of your data, and a short description of your findings with any relevant plots or tables.
 
-Each student will prepare and record a 2-minute summary video presentation of their team's midterm project that will be submitted with their analysis.
+Note: If your plots are crowded or overlapping on your screen, you can adjust the layout of your subplot using plt.subplots_adjust(). For most people, plt.subplots_adjust(top=2.5,right=2.5) should be sufficient.
 
-© 2020 - 2022 Trilogy Educati
+
+
+
+Part 2: Critical Thinking
+
+
+Now that you have created your subplot looking at final tumor volume versus drug regimen, it is time to analyze your visualizations. Think about the following questions while you review your subplot. (Note: no need to write and submit your answers. In upcoming skill drills, we will begin to document our observations more thoroughly.)
+
+
+Take a look at the original boxplot. Do you notice any datapoints that stand out from the box and whiskers? These are known as outliers. We will learn more about them in the next unit.
+
+
+Take a look at the horizontal bar plot. Are there any drug regimen with substantially smaller maximum final tumor volume? How are they related to the drug regimens that stand out in the boxplot?
+
+
+Look at the scatter plot colored by Sex. Across all of the drug regimen, does the distribution of mouse Sex look different in any regimen? Why or why not?
+
+
+Lastly, look at the scatter plot colored by Age_months. Across all of the drug regimen, does the distribution of mouse Age_months look different in any regimen? Why or why not?
+
+
+
+
+Note: Do not worry if you are unsure of your answers! This week is the first time we are looking at data analysis and visualizations critically. As we progress through the course we will learn how to analyze data critically and quantify our findings using statistical measures.
